@@ -5,7 +5,9 @@
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 25px;
+  text-align: center;
+  color: green;
 }
 
 #form {
@@ -16,3 +18,11 @@ h1 {
   align-items: center;
   justify-content: space-around;
 }
+
+#toDo {
+  display: none;
+}
+
+/* #toDoMod {
+  display: none;
+} */

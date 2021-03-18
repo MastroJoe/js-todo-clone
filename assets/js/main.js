@@ -9,14 +9,31 @@ $(document).ready(function(){
   $('#add').click(function(){
     var toDo = $('#toDoIn').val();
     $('#toDoIn').val('');
-    // clono li e sostituisco il valore con il valore inserito dall'utente
+    // clono tutto il template
     var template = $('#toDo li').clone();
-    template.children('span.userToDo').text(toDo);
-    // al click di delete la To-Do viene rimossa
+    // sostituisco il valore con il valore inserito dall'utente
+    template.children('span.template').text(toDo);
+    // al click di Fatto! la To-Do corrispondente viene rimossa
     template.children('span.delete').click(function() {
       $(this).parent().remove();
     });
-    // stampo il valore su HTML 
+    // stampo il valore su HTML
     $('#todos').append(template);
-  })
+  });
+
+  // prova modifica
+  $(document).on('click', '.lista li .edit', function (){
+  if ($(this).addClass('active')) {
+    $(this).siblings('input').hide();
+    var title = $(this).siblings('input').val();
+
+    $(this).siblings('span.template').text(title).show();
+  } else {
+    $(this).siblings('span.template').hide();
+    var title = $(this).siblings('span.template').text();
+
+    $(this).siblings('input').val(title).show();
+  }
+  $(this).toggleClass('active');
+  });
 });
